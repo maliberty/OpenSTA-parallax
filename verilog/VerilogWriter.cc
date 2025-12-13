@@ -182,8 +182,8 @@ VerilogWriter::writeModule(const Instance *inst)
   Cell *cell = network_->cell(inst);
   std::string cell_vname = cellVerilogName(network_->name(cell));
   fprintf(stream_, "module %s (", cell_vname.c_str());
-  writePorts(cell);
   writePortDcls(cell);
+  writePorts(cell);
   fprintf(stream_, "\n");
   writeWireDcls(inst);
   fprintf(stream_, "\n");
